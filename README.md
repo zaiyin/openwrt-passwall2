@@ -1,3 +1,3 @@
-# openwrt-passwall-2
+# openwrt-passwall2
 A V2fly core for Openwrt LuCI Application.
-passwall02
+passwall2
