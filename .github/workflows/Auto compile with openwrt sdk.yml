@@ -59,7 +59,17 @@ jobs:
           echo "**:minidisc: Passwall2 Version: ${{steps.check_version.outputs.latest_version}}**" >> release.txt
           touch release.txt
 
-
+  job_auto_compile:
+    if: needs.job_check.outputs.has_update == 'true'
+    needs: job_check
+    runs-on: ubuntu-latest
+    name: build (${{ matrix.platform }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: aarch64_generic
+            url_sdk: https://downloads.openwrt.org/releases/22.03.3/targets/rockchip/armv8/openwrt-sdk-22.03.3-rockchip-armv8_gcc-11.2.0_musl.Linux-x86_64.tar.xz
 
 
   job_build_passwall2:
