@@ -22,7 +22,7 @@ env:
 
 jobs:
   job_check:
-    if: github.repository == 'xiaorouji/openwrt-passwall2'
+    if: github.repository == 'zaiyin/openwrt-passwall2'
     name: Check Version
     runs-on: ubuntu-latest
     outputs:
