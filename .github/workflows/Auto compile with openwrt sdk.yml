@@ -148,6 +148,9 @@ jobs:
           echo "status=success" >> $GITHUB_OUTPUT
           echo "FIRMWARE=$PWD" >> $GITHUB_ENV
 
+      - permissions:
+        contents: write
+
       - name: Upload passwall2 ipks to release
         uses: softprops/action-gh-release@v1
         if: steps.compile.outputs.status == 'success'
@@ -282,6 +285,9 @@ jobs:
 
           touch release.txt
           echo "status=success" >> $GITHUB_OUTPUT
+
+      - permissions:
+        contents: write
 
       - name: Upload firmware to release
         uses: softprops/action-gh-release@v1
